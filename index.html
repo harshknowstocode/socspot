@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="8.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="main">
@@ -62,90 +62,6 @@
         </footer>
         
     </div>
-    <script src="8.js"></script>
-    <script>
-        const audioplayer = document.getElementById('audioplayer')
-const musicitem = document.querySelectorAll('.music')
-const playbutton = document.querySelector('.pauseplay')
-const seekbar = document.querySelector('.seekbar')
-const seekcontainer = document.querySelector('.seek')
-const volumebar = document.querySelector('.volumebar')
-const songimage = document.getElementById('songimage')
-
-
-
-
-
-let currentsong = null
-let isplaying = false
-
-musicitem.forEach(item =>{
-    item.addEventListener('click',()=>{
-        const src = item.getAttribute('data-src')
-        const imgsrc = item.getAttribute('data-img')
-        if(src !== currentsong){
-            currentsong = src
-            audioplayer.src = src
-            songimg.src = imgsrc
-        }
-        if(isplaying){
-            audioplayer.currentTime = 0
-        }
-        audioplayer.play()
-        isplaying = true
-        updateplaybutton()
-        
-    })
-})
-
-playbutton.addEventListener('click',()=>{
-    if(!audioplayer.src) return
-    if(isplaying){
-        audioplayer.pause()
-    } else {
-        audioplayer.play()
-    }
-    isplaying = !isplaying
-    updateplaybutton()
-    }
-)
-
-function updateplaybutton(){
-    if(isplaying){
-        playbutton.textContent = '⏸️'
-    } else{
-        playbutton.textContent = '▶️'
-    }
-}
-
-audioplayer.addEventListener('timeupdate',()=>{
-    const progress = (audioplayer.currentTime/audioplayer.duration)*100
-    seekbar.style.width = progress + "%"
-})
-
-volumebar.addEventListener('click',(e)=>{
-    const rect = volumebar.getBoundingClientRect()
-    const clickX = e.clientX - rect.left
-    const width = rect.width
-    const volume = clickX/width
-    audioplayer.volume = volume
-    volumebar.style.background = `linear-gradient(to right, green ${volume*100}%, black ${volume*100}%)`
-
-})
-
-seekcontainer.addEventListener('click',(e)=>{
-    const rect = seekcontainer.getBoundingClientRect()
-    const clickX = e.clientX - rect.left
-    const width = rect.width
-    const position = clickX/width
-    audioplayer.currentTime = position*audioplayer.duration
-    seekbar.style.width = `${position*100}%`
-})
-
-
-
-
-
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
