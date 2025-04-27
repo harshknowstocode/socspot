@@ -77,7 +77,7 @@ seekcontainer.addEventListener('click',(e)=>{
 
 document.getElementById('login').addEventListener('click',()=>{
 const clientId = 'd1731c875c5f4f45bcc1bf69041097c1'
-const redirectUri = 'http://127.0.0.1:5500/8spotify.html'
+const redirectUri = 'https://harshknowstocode.github.io/socspot/'
 const scope = 'user-read-private user-read-email';
 const authUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scope)}`;
 
